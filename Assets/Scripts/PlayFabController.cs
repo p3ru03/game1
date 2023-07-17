@@ -3,6 +3,7 @@ using PlayFab.ClientModels;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class PlayFabController : MonoBehaviour
 {
@@ -26,11 +27,31 @@ public class PlayFabController : MonoBehaviour
 
     public void Login()
     {
-        //カスタムIDでログイン
-        PlayFabClientAPI.LoginWithCustomID(
-            new LoginWithCustomIDRequest { CustomId = "TestID", CreateAccount = true },
-            result => Debug.Log("ログイン成功！"),
-            error => Debug.Log("ログイン失敗"));
+        //２回目以降のログイン
+        if(PlayerPrefs.HasKey("loginID"))
+        {
+            //カスタムIDでログイン
+            PlayFabClientAPI.LoginWithCustomID(
+            new LoginWithCustomIDRequest { CustomId = PlayerPrefs.GetString("loginID"), CreateAccount = true },
+                result => Debug.Log("ログイン成功！"),
+                error => Debug.Log("ログイン失敗"));
+        }
+        //初回ログイン
+        else
+        {
+            //Guidの構造体生成 無数のパターンを持つ
+            Guid guid = Guid.NewGuid();
+            //カスタムIDでログイン
+            PlayFabClientAPI.LoginWithCustomID(
+                new LoginWithCustomIDRequest { CustomId = guid.ToString(), CreateAccount = true },
+                result => Debug.Log("ログイン成功！"),
+                error => Debug.Log("ログイン失敗"));
+
+            //ログインIDを保存
+            PlayerPrefs.SetString("loginID", guid.ToString());
+            PlayerPrefs.Save();
+        }
+       
     }
 
     //スコアを送信
