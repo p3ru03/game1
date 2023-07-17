@@ -160,6 +160,8 @@ MonoBehaviour:
   fScene: {fileID: 950372637}
   randomGenerator: {fileID: 0}
   pauseCanvas: {fileID: 0}
+  RenameCanvas: {fileID: 0}
+  nameManager: {fileID: 0}
 --- !u!114 &97450631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -513,6 +515,7 @@ GameObject:
   m_Component:
   - component: {fileID: 335420321}
   - component: {fileID: 335420322}
+  - component: {fileID: 335420324}
   - component: {fileID: 335420323}
   m_Layer: 0
   m_Name: ScoreManager
@@ -553,6 +556,7 @@ MonoBehaviour:
   drumrollSE: {fileID: 8300000, guid: 154f7375578bb4f4faea2cbcf0befec1, type: 3}
   drumrollendSE: {fileID: 8300000, guid: e25f191a72e1f9640a80ba8c55a435b0, type: 3}
   pfContoroller: {fileID: 1712762992}
+  scoreManager: {fileID: 335420324}
 --- !u!82 &335420323
 AudioSource:
   m_ObjectHideFlags: 0
@@ -649,6 +653,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &335420324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335420319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff9bdaab046c2bc4fab757172952a8c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textScore: {fileID: 0}
+  highScore: {fileID: 2095878359}
 --- !u!1 &832730207
 GameObject:
   m_ObjectHideFlags: 0

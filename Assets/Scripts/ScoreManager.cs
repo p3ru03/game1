@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class ScoreManager : MonoBehaviour
 {
     public Text textScore;
+    public Text highScore;
     int iScore = 0;
     public void SetScore()
     {
@@ -17,4 +19,11 @@ public class ScoreManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
+    public void SetHighScore(float gScore)
+    {
+        int hScore = Math.Max(PlayerPrefs.GetInt("HIGHSCORE",0), (int)gScore);
+        PlayerPrefs.SetInt("HIGHSCORE", hScore);
+        PlayerPrefs.Save();
+        highScore.text = "HighScore:" + hScore.ToString();
+    }
 }

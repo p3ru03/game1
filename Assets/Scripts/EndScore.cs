@@ -14,6 +14,8 @@ public class EndScore : MonoBehaviour
 
     public PlayFabController pfContoroller;
 
+    public ScoreManager scoreManager;
+
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -60,7 +62,7 @@ public class EndScore : MonoBehaviour
         //スコアを送信
         pfContoroller.SubmitScore();
         //ハイスコアを表示
-        pfContoroller.GetPlayerStatistics();
+        scoreManager.SetHighScore(getScore);
 
     }
 
