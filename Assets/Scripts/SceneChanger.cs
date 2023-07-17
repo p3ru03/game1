@@ -14,6 +14,10 @@ public class SceneChanger : MonoBehaviour
 
     public Canvas pauseCanvas;
 
+    public Canvas RenameCanvas;
+
+    public NameManager nameManager;
+
     // Start is called before the first frame update
 
     void Start()
@@ -32,6 +36,23 @@ public class SceneChanger : MonoBehaviour
         audioSource.PlayOneShot(buttonSE);
         
         fScene.LoadScene("SampleScene");
+    }
+
+    public void PressRename()
+    {
+        audioSource.PlayOneShot(buttonSE);
+
+        //名前入力画面を前面に出す
+        RenameCanvas.sortingOrder = 100;
+    }
+    public void PressOK()
+    {
+        audioSource.PlayOneShot(buttonSE);
+
+        nameManager.Rename();
+
+        //名前入力画面を後面に戻す
+        RenameCanvas.sortingOrder = -11;
     }
 
     public void PressRetry()

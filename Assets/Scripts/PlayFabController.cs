@@ -16,18 +16,21 @@ public class PlayFabController : MonoBehaviour
 
     void Start()
     {
-        //カスタムIDでログイン
-        PlayFabClientAPI.LoginWithCustomID(
-            new LoginWithCustomIDRequest { CustomId = "TestID", CreateAccount = true },
-            result => Debug.Log("ログイン成功！"),
-            error => Debug.Log("ログイン失敗"));
-
-
+        Login();
     }
 
     void Update()
     {
        
+    }
+
+    public void Login()
+    {
+        //カスタムIDでログイン
+        PlayFabClientAPI.LoginWithCustomID(
+            new LoginWithCustomIDRequest { CustomId = "TestID", CreateAccount = true },
+            result => Debug.Log("ログイン成功！"),
+            error => Debug.Log("ログイン失敗"));
     }
 
     //スコアを送信
@@ -90,7 +93,7 @@ public class PlayFabController : MonoBehaviour
             {
                 StatisticName = STATISTICS_NAME,
                 StartPosition = 0,
-                MaxResultsCount = 10
+                MaxResultsCount = 5
             },
             result =>
             {
@@ -103,5 +106,23 @@ public class PlayFabController : MonoBehaviour
                 Debug.Log(error.GenerateErrorReport());
             }
             );
+    }
+
+    //名前の更新
+    public void SetPlayerDisplayName(string displayName)
+    {
+        PlayFabClientAPI.UpdateUserTitleDisplayName(
+            new UpdateUserTitleDisplayNameRequest
+            {
+                DisplayName = displayName
+            },
+            result => {
+                Debug.Log("Set display name was succeeded.");
+    
+            },
+            error => {
+                Debug.LogError(error.GenerateErrorReport());
+            }
+        );
     }
 }
