@@ -69,6 +69,18 @@ public class SceneChanger : MonoBehaviour
         SceneManager.LoadScene("Title", LoadSceneMode.Single);
     }
 
+    public void PressRanking()
+    {
+        //音が鳴ってからシーン遷移させるため
+        int count = 1000;
+        audioSource.PlayOneShot(buttonSE);
+        for (int i = 0; i < count; i++)
+        {
+            Debug.Log("wait");
+        }
+        SceneManager.LoadScene("RankingScene", LoadSceneMode.Single);
+    }
+
     public void PressRestart()
     {
         audioSource.PlayOneShot(buttonSE);
