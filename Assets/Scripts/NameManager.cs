@@ -18,8 +18,6 @@ public class NameManager : MonoBehaviour
     {
         savedname = PlayerPrefs.GetString("username");
         username.text = "User Name:" + savedname;
-        
-        NativeLeakDetection.Mode = NativeLeakDetectionMode.EnabledWithStackTrace;
     }
 
 
