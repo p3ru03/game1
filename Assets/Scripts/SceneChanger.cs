@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SceneChanger : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class SceneChanger : MonoBehaviour
     public Canvas RenameCanvas;
 
     public NameManager nameManager;
+
+    public InputField inputField;
 
     // Start is called before the first frame update
 
@@ -47,12 +50,16 @@ public class SceneChanger : MonoBehaviour
     }
     public void PressOK()
     {
-        audioSource.PlayOneShot(buttonSE);
+        if(inputField.text.Length>=3&& inputField.text.Length <= 25)
+        {
+            audioSource.PlayOneShot(buttonSE);
 
-        nameManager.Rename();
+            nameManager.Rename();
 
-        //名前入力画面を後面に戻す
-        RenameCanvas.sortingOrder = -11;
+            //名前入力画面を後面に戻す
+            RenameCanvas.sortingOrder = -11;
+        }
+        
     }
 
     public void PressRetry()

@@ -36,4 +36,5 @@ public class NameManager : MonoBehaviour
         username.text = "User Name:" + inputField.text;
         pfContoroller.SetPlayerDisplayName(inputField.text);
     }
+
 }
