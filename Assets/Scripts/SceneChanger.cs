@@ -10,7 +10,7 @@ public class SceneChanger : MonoBehaviour
     public AudioClip buttonSE;
 
     public FadeScene fScene;
- 
+
     public RandomGenerator randomGenerator;
 
     public Canvas pauseCanvas;
@@ -37,7 +37,7 @@ public class SceneChanger : MonoBehaviour
     public void PressStart()
     {
         audioSource.PlayOneShot(buttonSE);
-        
+
         fScene.LoadScene("SampleScene");
     }
 
@@ -50,7 +50,7 @@ public class SceneChanger : MonoBehaviour
     }
     public void PressOK()
     {
-        if(inputField.text.Length>=3&& inputField.text.Length <= 25)
+        if (inputField.text.Length >= 3 && inputField.text.Length <= 25)
         {
             audioSource.PlayOneShot(buttonSE);
 
@@ -59,7 +59,7 @@ public class SceneChanger : MonoBehaviour
             //名前入力画面を後面に戻す
             RenameCanvas.sortingOrder = -11;
         }
-        
+
     }
 
     public void PressRetry()
