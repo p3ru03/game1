@@ -58,22 +58,9 @@ public class EndScore : MonoBehaviour
         audioSource.PlayOneShot(drumrollendSE);
         // 最終的な着地のスコア
         scoreText.text = "Score:" + endScore.ToString();
-
-        //スコアを送信
-        pfContoroller.SubmitScore();
+ 
         //ハイスコアを表示
         scoreManager.SetHighScore(getScore);
-
     }
 
-    /*void renewalHighScore()
-    {
-        if (highScore < getScore)
-        {
-            highScore = getScore;
-
-            PlayerPrefs.SetFloat("HIGHSCORE", highScore);
-            PlayerPrefs.Save();//ディスクへの書き込み
-        }
-    }*/
 }
