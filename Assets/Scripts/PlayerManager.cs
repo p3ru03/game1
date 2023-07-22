@@ -29,7 +29,7 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     //‚Ô‚Â‚©‚Á‚½‚Æ‚«‚É“®‚­
@@ -43,7 +43,7 @@ public class PlayerManager : MonoBehaviour
             sManager.SetScore();
             isZero = false;
             //SE‚ðˆê‰ñ–Â‚ç‚·
-            audioSource.PlayOneShot(targetSE); 
+            audioSource.PlayOneShot(targetSE);
         }
 
         if (collision.gameObject.CompareTag("Virus") && !playerdead)

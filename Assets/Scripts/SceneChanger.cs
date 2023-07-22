@@ -21,6 +21,8 @@ public class SceneChanger : MonoBehaviour
 
     public InputField inputField;
 
+    public EndScore endscore;
+
     // Start is called before the first frame update
 
     void Start()
@@ -50,6 +52,7 @@ public class SceneChanger : MonoBehaviour
     }
     public void PressOK()
     {
+        //文字数制限
         if (inputField.text.Length >= 3 && inputField.text.Length <= 25)
         {
             audioSource.PlayOneShot(buttonSE);
@@ -64,28 +67,40 @@ public class SceneChanger : MonoBehaviour
 
     public void PressRetry()
     {
-        audioSource.PlayOneShot(buttonSE);
+        //endシーンならドラムロールが終わってからシーン遷移できるように
+        if (endscore == null || endscore.canClick)
+        {
+            audioSource.PlayOneShot(buttonSE);
 
-        fScene.LoadScene("SampleScene");
+            fScene.LoadScene("SampleScene");
+        }
+
     }
 
     public void PressTitle()
     {
-        audioSource.PlayOneShot(buttonSE);
+        if (endscore == null || endscore.canClick)
+        {
+            audioSource.PlayOneShot(buttonSE);
 
-        SceneManager.LoadScene("Title", LoadSceneMode.Single);
+            SceneManager.LoadScene("Title", LoadSceneMode.Single);
+        }
     }
 
     public void PressRanking()
     {
-        //音が鳴ってからシーン遷移させるため
-        int count = 1000;
-        audioSource.PlayOneShot(buttonSE);
-        for (int i = 0; i < count; i++)
+        if (endscore == null || endscore.canClick)
         {
-            Debug.Log("wait");
+            //音が鳴ってからシーン遷移させるため
+            int count = 1000;
+            audioSource.PlayOneShot(buttonSE);
+            for (int i = 0; i < count; i++)
+            {
+                Debug.Log("wait");
+            }
+            SceneManager.LoadScene("RankingScene", LoadSceneMode.Single);
         }
-        SceneManager.LoadScene("RankingScene", LoadSceneMode.Single);
+
     }
 
     public void PressRestart()

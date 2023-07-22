@@ -163,6 +163,7 @@ MonoBehaviour:
   RenameCanvas: {fileID: 0}
   nameManager: {fileID: 0}
   inputField: {fileID: 0}
+  endscore: {fileID: 335420322}
 --- !u!114 &97450631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -473,6 +474,7 @@ MonoBehaviour:
   drumrollendSE: {fileID: 8300000, guid: e25f191a72e1f9640a80ba8c55a435b0, type: 3}
   pfContoroller: {fileID: 1712762992}
   scoreManager: {fileID: 335420324}
+  canClick: 0
 --- !u!82 &335420323
 AudioSource:
   m_ObjectHideFlags: 0

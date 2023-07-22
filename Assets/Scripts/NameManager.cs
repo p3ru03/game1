@@ -24,7 +24,7 @@ public class NameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void Rename()

@@ -16,11 +16,9 @@ public class Virus : MonoBehaviour
     [SerializeField, Header("加速度")] public float accel;
     [SerializeField, Header("n秒ごとに加速")] public int n;
 
-    SceneChanger changer;
-
     private void Start()
     {
-       
+
     }
     void Update()
     {
@@ -32,5 +30,5 @@ public class Virus : MonoBehaviour
             // 画面下端よりも下に行ったら敵オブジェクトを破壊する
             Destroy(gameObject);
         }
-    }  
+    }
 }

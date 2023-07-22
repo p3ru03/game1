@@ -21,21 +21,21 @@ public class FadeScene : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     //ここはアニメーションが完了したら実行するようにしておく
     public void LoadSceneEvent()
     {
-       
-        SceneManager.LoadScene(_SceneName , LoadSceneMode.Single);
-       
+
+        SceneManager.LoadScene(_SceneName, LoadSceneMode.Single);
+
     }
 
     public void LoadScene(string sceneName)
     {
         animator.enabled = true;
         _SceneName = sceneName;
-        
+
     }
 }

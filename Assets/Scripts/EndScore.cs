@@ -16,6 +16,8 @@ public class EndScore : MonoBehaviour
 
     public ScoreManager scoreManager;
 
+    public bool canClick = false;
+
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -23,7 +25,7 @@ public class EndScore : MonoBehaviour
 
         //保存していたスコアを呼び出す
         getScore = (float)PlayerPrefs.GetInt("SCORE", 0);
-        
+
         StartCoroutine(ScoreAnimation(0f, getScore, 2f));
     }
 
@@ -46,7 +48,7 @@ public class EndScore : MonoBehaviour
 
             // テキストの更新
             // （"f0" の "0" は、小数点以下の桁数指定）
-            scoreText.text = "Score:" + updateValue.ToString("f0"); 
+            scoreText.text = "Score:" + updateValue.ToString("f0");
 
             // 1フレーム待つ
             yield return null;
@@ -58,9 +60,12 @@ public class EndScore : MonoBehaviour
         audioSource.PlayOneShot(drumrollendSE);
         // 最終的な着地のスコア
         scoreText.text = "Score:" + endScore.ToString();
- 
+
         //ハイスコアを表示
         scoreManager.SetHighScore(getScore);
+
+        //ボタンを押せるように
+        canClick = true;
     }
 
 }

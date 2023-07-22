@@ -32,7 +32,7 @@ public class RandomGenerator : MonoBehaviour
         //‚±‚ê‚Åƒ|[ƒY‚Ì‚Æ‚«‚É¶¬‚ğ~‚ß‚é
         if (!isStart) return;
 
-       
+
 
         //¶¬ŠÔŠu‚ğ‘€ì
         if (frame > generateFrame)
