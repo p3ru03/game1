@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class PlayerManager : MonoBehaviour
 
     public ScoreManager sManager;
 
+    bool isZero = true;
+
     // Start is called before the first frame update
 
     void Start()
@@ -26,7 +29,7 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     //ぶつかったときに動く
@@ -38,13 +41,20 @@ public class PlayerManager : MonoBehaviour
             Destroy(collision.gameObject);
             //スコアを足す
             sManager.SetScore();
+            isZero = false;
             //SEを一回鳴らす
-            audioSource.PlayOneShot(targetSE); 
+            audioSource.PlayOneShot(targetSE);
         }
 
         if (collision.gameObject.CompareTag("Virus") && !playerdead)
         {
             Destroy(RandomGenerator);
+            //スコア0の場合ここで更新
+            if (isZero)
+            {
+                PlayerPrefs.SetInt("SCORE", 0);
+                PlayerPrefs.Save();
+            }
 
             //シーン移動する前に２回以上呼ばれないようにする
             playerdead = true;
