@@ -9,6 +9,8 @@ public class FadeScene : MonoBehaviour
 
     Animator animator;
 
+   
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +38,6 @@ public class FadeScene : MonoBehaviour
     {
         animator.enabled = true;
         _SceneName = sceneName;
-
+        
     }
 }

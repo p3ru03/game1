@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "761966997753",
+    "project_id": "shooting001-cd5a3",
+    "storage_bucket": "shooting001-cd5a3.appspot.com"
+    
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:761966997753:android:04f9bcac5670685beb7228",
+        "android_client_info": {
+          "package_name": "com.superglide.shooting001"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD54ehJ02M1-tVsKmTvkaORtWjcLzemgRc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

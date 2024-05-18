@@ -18,8 +18,17 @@ public class EndScore : MonoBehaviour
 
     public bool canClick = false;
 
+    public imageChanger imageChanger;
+    bool firstDisplay = true;
+
+    public GameObject image;
+    
+    float imageSize = 100f;
+    public SizeChanger sizeChanger;
+
     private void Start()
     {
+        
         audioSource = GetComponent<AudioSource>();
         audioSource.PlayOneShot(drumrollSE);
 
@@ -27,6 +36,23 @@ public class EndScore : MonoBehaviour
         getScore = (float)PlayerPrefs.GetInt("SCORE", 0);
 
         StartCoroutine(ScoreAnimation(0f, getScore, 2f));
+
+
+    }
+
+    private void Update()
+    {
+        if (canClick && imageChanger.downloaded && firstDisplay)
+        {
+            imageChanger.Display();
+            firstDisplay = false;
+
+        }
+        if(!firstDisplay&!sizeChanger.isZero)
+        {
+            sizeChanger.Sizechanger(imageSize, imageSize);//画像差し替え後に大きく表示
+
+        }
     }
 
     // スコアをアニメーションさせる
@@ -46,6 +72,7 @@ public class EndScore : MonoBehaviour
             // 数値を更新
             float updateValue = (float)((endScore - startScore) * timeRate + startScore);
 
+           
             // テキストの更新
             // （"f0" の "0" は、小数点以下の桁数指定）
             scoreText.text = "Score:" + updateValue.ToString("f0");

@@ -786,6 +786,7 @@ MonoBehaviour:
   nameManager: {fileID: 0}
   inputField: {fileID: 0}
   endscore: {fileID: 0}
+  adMobInterstitial: {fileID: 0}
 --- !u!82 &469216865
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2862,8 +2863,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virus: {fileID: 8770328607655573350, guid: af71516e4315d23418c020bd70bfacaa, type: 3}
-  target1: {fileID: 6464773649950737514, guid: 43646a913d99b0b45a68546e320fd255, type: 3}
-  vnumber: 30
+  Undo: {fileID: 6156187429785833825, guid: 7b913172c8a7ae343adbfaed8cc2e715, type: 3}
+  Benkyo: {fileID: 5753849830957194716, guid: 96de17ab47b25504ca5ac3e466e04e0e, type: 3}
+  Kankyo: {fileID: 3062145525056697333, guid: 4c78f761fce5221419db25082e188779, type: 3}
   generateFrame: 250
   isStart: 0
   vScript: {fileID: 8512535230959664556, guid: af71516e4315d23418c020bd70bfacaa, type: 3}

@@ -23,6 +23,8 @@ public class SceneChanger : MonoBehaviour
 
     public EndScore endscore;
 
+    public AdMobInterstitial adMobInterstitial;
+
     // Start is called before the first frame update
 
     void Start()
@@ -92,13 +94,11 @@ public class SceneChanger : MonoBehaviour
         if (endscore == null || endscore.canClick)
         {
             //音が鳴ってからシーン遷移させるため
-            int count = 1000;
+           
             audioSource.PlayOneShot(buttonSE);
-            for (int i = 0; i < count; i++)
-            {
-                Debug.Log("wait");
-            }
-            SceneManager.LoadScene("RankingScene", LoadSceneMode.Single);
+
+            adMobInterstitial.ShowAdMobInterstitial();
+            //SceneManager.LoadScene("RankingScene", LoadSceneMode.Single);
         }
 
     }
