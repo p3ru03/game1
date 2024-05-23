@@ -35,12 +35,26 @@ public class PlayerManager : MonoBehaviour
     //‚Ô‚Â‚©‚Á‚½‚Æ‚«‚É“®‚­
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Target"))
+        if (collision.gameObject.CompareTag("Target_u")|| collision.gameObject.CompareTag("Target_b")|| collision.gameObject.CompareTag("Target_k"))
         {
             //Õ“Ë‘Šè‚ğ”j‰ó
             Destroy(collision.gameObject);
             //ƒXƒRƒA‚ğ‘«‚·
             sManager.SetScore();
+
+            if (collision.gameObject.CompareTag("Target_u"))
+            {
+                sManager.SetPoint_u();
+            }
+            else if (collision.gameObject.CompareTag("Target_b"))
+            {
+                sManager.SetPoint_b();
+            }
+            else
+            {
+                sManager.SetPoint_k();
+            }
+
             isZero = false;
             //SE‚ğˆê‰ñ–Â‚ç‚·
             audioSource.PlayOneShot(targetSE);

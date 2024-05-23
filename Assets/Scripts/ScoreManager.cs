@@ -15,6 +15,10 @@ public class ScoreManager : MonoBehaviour
 
     public PlayFabController pfContoroller;
 
+    private int Point_u = 0;
+    private int Point_b = 0;
+    private int Point_k = 0;
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -26,6 +30,33 @@ public class ScoreManager : MonoBehaviour
 
         //スコアを保存しないと壊れてなくなる
         PlayerPrefs.SetInt("SCORE", iScore);
+        PlayerPrefs.Save();
+    }
+
+    public void SetPoint_u()
+    {
+        Point_u += 1;
+
+        //スコアを保存しないと壊れてなくなる
+        PlayerPrefs.SetInt("point_u", Point_u);
+        PlayerPrefs.Save();
+    }
+
+    public void SetPoint_b()
+    {
+        Point_b += 1;
+
+        //スコアを保存しないと壊れてなくなる
+        PlayerPrefs.SetInt("point_b", Point_b);
+        PlayerPrefs.Save();
+    }
+
+    public void SetPoint_k()
+    {
+        Point_k += 1;
+
+        //スコアを保存しないと壊れてなくなる
+        PlayerPrefs.SetInt("point_k", Point_k);
         PlayerPrefs.Save();
     }
 

@@ -16,6 +16,9 @@ TagManager:
   - Rocket
   - Target
   - Virus
+  - Target_u
+  - Target_b
+  - Target_k
   layers:
   - Default
   - TransparentFX

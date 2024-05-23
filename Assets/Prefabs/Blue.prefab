@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 6842227939242304688}
   m_Layer: 0
   m_Name: Blue
-  m_TagString: Target
+  m_TagString: Target_b
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
